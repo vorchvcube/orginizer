@@ -29,8 +29,6 @@ export class CalendarComponent implements OnInit {
   }
 
   generate(now: moment.Moment) {
-    console.log(now.format());
-
     const startDay = now.clone().startOf('month').startOf('week');
     const endDay = now.clone().endOf('month').endOf('week');
 
@@ -41,11 +39,19 @@ export class CalendarComponent implements OnInit {
         days: Array(7)
           .fill(0)
           .map(() => {
-            const value = date.add(1, 'day');
+            const value = date.add(1, 'day').clone();
+            const active = moment().isSame(value, 'date');
+            const disabled = !now.isSame(value, 'month');
+            const selected = now.isSame(value, 'date');
+            return {value, active, disabled, selected};
           })
       });
     }
+    this.calendar = calendar;
+  }
 
+  select(day: moment.Moment) {
+    this.dateService.changedate(day);
   }
 
 }
