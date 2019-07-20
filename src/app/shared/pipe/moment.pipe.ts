@@ -1,5 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import * as moment from 'moment'
+import * as moment from 'moment';
+import 'moment/locale/ru';
+moment.locale('ru');
 @Pipe({
   name: 'moment',
   pure: false
