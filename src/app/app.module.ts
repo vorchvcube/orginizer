@@ -8,6 +8,7 @@ import { OrganizerComponent } from './organizer/organizer.component';
 import { MomentPipe } from './shared/pipe/moment.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ThemeSwitchComponent } from './theme-switch/theme-switch.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
     SelectorComponent,
     OrganizerComponent,
     MomentPipe,
+    ThemeSwitchComponent,
   ],
   imports: [
     BrowserModule,
